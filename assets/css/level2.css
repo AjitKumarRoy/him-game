@@ -1,0 +1,419 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+    overflow: hidden;
+}
+
+.responsive-container {
+    width: 90%;
+    max-width: 1069px;
+    height: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    background-image: url('../images/Level-1/Background-01.png');
+    /* Replace with your image URL */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* animation: zoomBackground 2s alternate ease-in-out infinite; */
+}
+
+/* Text overlay styling */
+.responsive-container h2,
+.responsive-container p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation effect */
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .responsive-container {
+        padding: 40px;
+    }
+}
+
+
+.all {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+/* level word */
+.level-word {
+    /* background-color: aqua; */
+}
+
+.level-word {
+    transform: translate(0, -10%);
+}
+
+.level-word img{
+    width: 200px;
+}
+/* //level word */
+
+
+/* main-container styles */
+
+
+.main-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* background-color: pink; */
+    
+}
+
+.main-container {
+    transform: translate(0, -6%);
+}
+
+.question {
+    /* background-color: yellow; */
+}
+
+.question {
+    transform: translate(10%, 0);
+}
+
+.question img {
+    width: 650px;
+}
+
+
+.answers {
+    /* background-color: black; */
+}
+
+.answers{
+    transform: translate(0, 0);
+}
+.answers img{
+    width: 450px;
+}
+
+
+
+
+
+
+
+/* //main-container styles */
+
+
+.dropzone {
+    /* background-color: #FEDE00; */
+    width: 122px;
+    height: 83px;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+.dropzone:hover {
+    border: 4px solid white;
+}
+
+.dropzone {
+    transform: translate(210%, -243%);
+}
+
+/* .dropzone img {
+    width: 120px;
+    height: 80px;
+} */
+
+
+
+
+
+
+
+.container2 {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    
+    
+}
+
+.background2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Set z-index to control the stacking order */
+    margin-left: 30px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;     /* Center children */
+    gap: 20px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translateY(50%); */
+    width: 30%;
+    height: 50%;
+    transform: translate(-30%, -70%); /* Center the overlay elements */
+    /* background-color: yellow; */
+    
+    
+    
+    z-index: 2; /* Higher z-index to be on top */
+}
+
+.draggable {
+    width: 130px;
+    height: 100px;
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    /* border: 2px solid #333; */
+}
+
+.draggable img {
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+}
+
+
+/* .draggable {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    
+    cursor: grab;
+
+}
+
+.draggable img {
+    width: 100%;
+    height: 100%;
+} */
+
+
+
+
+.character {
+    /* background-color: thistle; */
+    width: 200px;
+}
+
+.character img {
+    width: 200px;
+}
+
+.character {
+    transform: translate(100%, -60%);
+}
+
+
+
+
+.hide {
+    visibility: hidden; /* or use opacity: 0; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mute & Unmute Icon designs */
+
+#toggle-music {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+#toggle-music .icon i {
+    display: none;
+    /* Hide both icons initially */
+    transition: opacity 0.3s ease;
+    /* Smooth transition for icon visibility */
+}
+
+/* Show the mute icon when the button has the 'mute' class */
+#toggle-music.mute .fa-volume-xmark {
+    display: inline;
+    color: red;
+    font-size: 24px;
+    /* Adjust icon size */
+    position: absolute;
+    transform: translate(870%, 1150%);
+    z-index: 5;
+    background-color: #FEDE00;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid white;
+    opacity: 1;
+    /* Ensure icon is visible */
+}
+
+/* Hide the unmute icon when the button has the 'mute' class */
+#toggle-music.mute .fa-volume-high {
+    display: none;
+    opacity: 0;
+    /* Hide unmute icon */
+}
+
+/* Show the unmute icon when the button has the 'unmute' class */
+#toggle-music.unmute .fa-volume-high {
+    display: inline;
+    color: green;
+    font-size: 24px;
+    /* Adjust icon size */
+    position: absolute;
+    transform: translate(820%, 1150%);
+    z-index: 5;
+    background-color: #FEDE00;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid white;
+    opacity: 1;
+    /* Ensure icon is visible */
+}
+
+/* Hide the mute icon when the button has the 'unmute' class */
+#toggle-music.unmute .fa-volume-xmark {
+    display: none;
+    opacity: 0;
+    /* Hide mute icon */
+}
+
+
+
+/* //Mute & Unmute Icon designs */
+
+
+
+
+
+/*  Modal Styles */
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    border-radius: 8px;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+
+
+
+  /* Hidden by default */
+#transition-overlay.hidden, #transition-overlay2.hidden  {
+    display: none;
+}
+
+/* #transition-overlay2.hidden {
+    display: none;
+} */
+
+/* Overlay for transition effect */
+#transition-overlay, #transition-overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* semi-transparent background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Make sure it's on top */
+}
+
+
+#transition-overlay img, #transition-overlay2 img {
+    max-width: 80%; /* Responsive GIF size */
+    max-height: 80%;
+}
+
+
+
+
+#progress-container, #progress-container2 {
+    width: 80%; /* Set the width of the progress container */
+    height: 10px; /* Set the height of the progress bar */
+    background-color: #e0e0e0; /* Background color of the progress container */
+    margin: 20px auto; /* Center the container */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#progress-bar, #progress-bar2 {
+    height: 100%; /* Fill the height of the container */
+    width: 0%; /* Initial width */
+    background-color: green; /* Color of the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    transition: width 0.1s ease-in-out; /* Smooth transition */
+}
+
+/* //Modal Styles */
+
+
