@@ -71,190 +71,209 @@ toggleMusicButton.addEventListener('click', () => {
 
 
 
-// Get modal elements
-const resultModal = document.getElementById("resultModal");
-const modalMessage = document.getElementById("modalMessage");
-const exitButton = document.getElementById("exitButton");
-const actionButton = document.getElementById("actionButton");
+// // Get modal elements
+// const resultModal = document.getElementById("resultModal");
+// const modalMessage = document.getElementById("modalMessage");
+// const exitButton = document.getElementById("exitButton");
+// const actionButton = document.getElementById("actionButton");
 
-exitButton.addEventListener('click', () => resultModal.style.display = 'none'); // Close modal on exit
+// exitButton.addEventListener('click', () => resultModal.style.display = 'none'); // Close modal on exit
 
 
 
-// Add event listeners to draggable items
-document.querySelectorAll('.draggable').forEach(item => {
-    item.addEventListener('dragstart', dragStart);
-    item.addEventListener('dragend', dragEnd); 
-});
+// // Add event listeners to draggable items
+// document.querySelectorAll('.draggable').forEach(item => {
+//     item.addEventListener('dragstart', dragStart);
+//     item.addEventListener('dragend', dragEnd); 
+// });
 
-// Add event listeners to drop zones
-document.querySelectorAll('.dropzone').forEach(zone => {
-    zone.addEventListener('dragover', dragOver);
-    zone.addEventListener('drop', drop);
-});
+// // Add event listeners to drop zones
+// document.querySelectorAll('.dropzone').forEach(zone => {
+//     zone.addEventListener('dragover', dragOver);
+//     zone.addEventListener('drop', drop);
+// });
 
-// Drag start function
-function dragStart(event) {
-    event.dataTransfer.setData('text/plain', event.target.id);
+// // Drag start function
+// function dragStart(event) {
+//     event.dataTransfer.setData('text/plain', event.target.id);
     
-    dragStartSound.play(); // Play sound when dragging starts
-    setTimeout(() => {
-        event.target.classList.add('hide'); // Hide original item while dragging
-    }, 0);
-}
+//     dragStartSound.play(); // Play sound when dragging starts
+//     setTimeout(() => {
+//         event.target.classList.add('hide'); // Hide original item while dragging
+//     }, 0);
+// }
 
-// Drag end function to restore visibility if not dropped
-function dragEnd(event) {
-    event.target.classList.remove('hide'); // Make visible again if not dropped
-}
+// // Drag end function to restore visibility if not dropped
+// function dragEnd(event) {
+//     event.target.classList.remove('hide'); // Make visible again if not dropped
+// }
 
-// Allow drop
-function dragOver(event) {
-    event.preventDefault();
-}
+// // Allow drop
+// function dragOver(event) {
+//     event.preventDefault();
+// }
 
-// Drop function
-function drop(event) {
-    event.preventDefault();
-    const id = event.dataTransfer.getData('text/plain');
-    const draggableElement = document.getElementById(id);
-
-    
-    // // Remove any existing item in the drop zone
-    // const existingItem = event.target.querySelector('.draggable');
-    // if (existingItem) {
-    //     existingItem.remove(); // Remove the existing item
-    // }
-    // Append the new item and make it visible
-    event.target.appendChild(draggableElement);
-    draggableElement.classList.remove('hide');
-
-    // Resize the item if necessary
-    draggableElement.style.width = "100px";
-    draggableElement.style.height = "auto";
-
-    // Check for correct drop zone and give visual feedback
-
-    if (event.target.id === `dropzone${id.charAt(id.length - 1)}`) {
-        //alert(`Correct! ${id} was dropped in the right zone!`);
-        correctDropSound.play(); // Play correct sound if item dropped in the right zone
-        event.target.style.backgroundColor = "green";
-
-        // Show modal for correct answer after 1 second
-
-        setTimeout(() => {
-            modalMessage.textContent = `Yuupp! Book is the right anwer.`;
-            actionButton.textContent = 'Move to Next Level';
-            actionButton.onclick = () => { 
-                resultModal.style.display = 'none'; 
-                // Add any "next level" functionality here
-                transitionToNextLevel(); // Redirect to next level
-            };
-            resultModal.style.display = 'flex';
-        }, 1000);
-
-    } else {
-        //alert(`Try again! ${id} was dropped in the wrong zone.`);
-        wrongDropSound.play(); // Play wrong sound if item dropped in the wrong zone
-        event.target.style.backgroundColor = "red";
-
-         // Show modal for incorrect answer after 1 second
-
-         setTimeout(() => {
-            modalMessage.textContent = `No! This is a wrong anwer.`;
-            actionButton.textContent = 'Replay';
-            actionButton.onclick = () => { 
-                resultModal.style.display = 'none'; 
-                // Add any "replay" functionality here
-                replay();
-            };
-            resultModal.style.display = 'flex';
-        }, 1000);
-    }
-}
-
-
-
-// Redirect to next level
-// Redirect with transition animation
-function transitionToNextLevel() {
-    levelUpSound.play(); // Play level up sound
-    const overlay = document.getElementById('transition-overlay2');
-    const progressBar = document.getElementById('progress-bar2');
-    overlay.classList.remove('hidden');
-
-    // Reset progress bar
-    progressBar.style.width = '0%';
-
-    // Animate the progress bar
-    let progress = 0;
-    const duration = 3000; // Duration in milliseconds (2 seconds)
-    const interval = 20; // Update interval in milliseconds
-    const totalSteps = duration / interval; // Total steps to reach 100%
-    
-    const progressInterval = setInterval(() => {
-        progress += 100 / totalSteps; // Increment progress
-        progressBar.style.width = `${progress}%`; // Update width
-
-        // Check if progress is complete
-        if (progress >= 100) {
-            clearInterval(progressInterval); // Stop the interval
-            setTimeout(() => {
-                window.location.href = './win.html'; // Redirect after animation
-            }, 200); // Optional short delay before redirecting
-        }
-    }, interval);
+// // Drop function
+// function drop(event) {
+//     event.preventDefault();
+//     const id = event.dataTransfer.getData('text/plain');
+//     const draggableElement = document.getElementById(id);
 
     
-}
+//     // // Remove any existing item in the drop zone
+//     // const existingItem = event.target.querySelector('.draggable');
+//     // if (existingItem) {
+//     //     existingItem.remove(); // Remove the existing item
+//     // }
+//     // Append the new item and make it visible
+//     event.target.appendChild(draggableElement);
+//     draggableElement.classList.remove('hide');
+
+//     // Resize the item if necessary
+//     draggableElement.style.width = "100px";
+//     draggableElement.style.height = "auto";
+
+//     // Check for correct drop zone and give visual feedback
+
+//     if (event.target.id === `dropzone${id.charAt(id.length - 1)}`) {
+//         //alert(`Correct! ${id} was dropped in the right zone!`);
+//         correctDropSound.play(); // Play correct sound if item dropped in the right zone
+//         event.target.style.backgroundColor = "green";
+
+//         // Show modal for correct answer after 1 second
+
+//         setTimeout(() => {
+//             modalMessage.textContent = `Yuupp! Book is the right anwer.`;
+//             actionButton.textContent = 'Move to Next Level';
+//             actionButton.onclick = () => { 
+//                 resultModal.style.display = 'none'; 
+//                 // Add any "next level" functionality here
+//                 transitionToNextLevel(); // Redirect to next level
+//             };
+//             resultModal.style.display = 'flex';
+//         }, 1000);
+
+//     } else {
+//         //alert(`Try again! ${id} was dropped in the wrong zone.`);
+//         wrongDropSound.play(); // Play wrong sound if item dropped in the wrong zone
+//         event.target.style.backgroundColor = "red";
+
+//          // Show modal for incorrect answer after 1 second
+
+//          setTimeout(() => {
+//             modalMessage.textContent = `No! This is a wrong anwer.`;
+//             actionButton.textContent = 'Replay';
+//             actionButton.onclick = () => { 
+//                 resultModal.style.display = 'none'; 
+//                 // Add any "replay" functionality here
+//                 replay();
+//             };
+//             resultModal.style.display = 'flex';
+//         }, 1000);
+//     }
+// }
 
 
 
-//Replay game by redirecting to the same page 
-function replay() {
-    levelUpSound.play(); // Play level up sound
-    const overlay = document.getElementById('transition-overlay');
-    const progressBar = document.getElementById('progress-bar');
-    overlay.classList.remove('hidden');
+// // Redirect to next level
+// // Redirect with transition animation
+// function transitionToNextLevel() {
+//     levelUpSound.play(); // Play level up sound
+//     const overlay = document.getElementById('transition-overlay2');
+//     const progressBar = document.getElementById('progress-bar2');
+//     overlay.classList.remove('hidden');
 
-    // Reset progress bar
-    progressBar.style.width = '0%';
+//     // Reset progress bar
+//     progressBar.style.width = '0%';
 
-    // Animate the progress bar
-    let progress = 0;
-    const duration = 3000; // Duration in milliseconds (2 seconds)
-    const interval = 20; // Update interval in milliseconds
-    const totalSteps = duration / interval; // Total steps to reach 100%
+//     // Animate the progress bar
+//     let progress = 0;
+//     const duration = 3000; // Duration in milliseconds (2 seconds)
+//     const interval = 20; // Update interval in milliseconds
+//     const totalSteps = duration / interval; // Total steps to reach 100%
     
-    const progressInterval = setInterval(() => {
-        progress += 100 / totalSteps; // Increment progress
-        progressBar.style.width = `${progress}%`; // Update width
+//     const progressInterval = setInterval(() => {
+//         progress += 100 / totalSteps; // Increment progress
+//         progressBar.style.width = `${progress}%`; // Update width
 
-        // Check if progress is complete
-        if (progress >= 100) {
-            clearInterval(progressInterval); // Stop the interval
-            setTimeout(() => {
-                window.location.href = './level-3.html'; // Redirect after animation
-            }, 200); // Optional short delay before redirecting
-        }
-    }, interval);
+//         // Check if progress is complete
+//         if (progress >= 100) {
+//             clearInterval(progressInterval); // Stop the interval
+//             setTimeout(() => {
+//                 window.location.href = './win.html'; // Redirect after animation
+//             }, 200); // Optional short delay before redirecting
+//         }
+//     }, interval);
 
-}
+    
+// }
 
 
-//home button link
-// Get the link and add a click event listener
-document.getElementById('home-link').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent immediate navigation
+
+// //Replay game by redirecting to the same page 
+// function replay() {
+//     levelUpSound.play(); // Play level up sound
+//     const overlay = document.getElementById('transition-overlay');
+//     const progressBar = document.getElementById('progress-bar');
+//     overlay.classList.remove('hidden');
+
+//     // Reset progress bar
+//     progressBar.style.width = '0%';
+
+//     // Animate the progress bar
+//     let progress = 0;
+//     const duration = 3000; // Duration in milliseconds (2 seconds)
+//     const interval = 20; // Update interval in milliseconds
+//     const totalSteps = duration / interval; // Total steps to reach 100%
+    
+//     const progressInterval = setInterval(() => {
+//         progress += 100 / totalSteps; // Increment progress
+//         progressBar.style.width = `${progress}%`; // Update width
+
+//         // Check if progress is complete
+//         if (progress >= 100) {
+//             clearInterval(progressInterval); // Stop the interval
+//             setTimeout(() => {
+//                 window.location.href = './level-3.html'; // Redirect after animation
+//             }, 200); // Optional short delay before redirecting
+//         }
+//     }, interval);
+
+// }
+
+
+//play button sound
+document.querySelector('.play-button').addEventListener('click', function(event) {
+    // event.preventDefault(); // Prevent immediate navigation
 
     // Play the click sound
     clickSound.play();
 
-    // Navigate to the link after the sound finishes
-    setTimeout(() => {
-        window.location.href = this.href;
-    }, 300); // Delay for sound duration (adjust if necessary)
+    // // Navigate to the link after the sound finishes
+    // setTimeout(() => {
+    //     window.location.href = this.href;
+    // }, 300); // Delay for sound duration (adjust if necessary)
 });
+
+//exit button sound
+document.querySelector('.exit-button').addEventListener('click', function(event) {
+    // event.preventDefault(); // Prevent immediate navigation
+
+    // Play the click sound
+    clickSound.play();
+});
+
+
+//info-button button sound
+document.querySelector('#info-button').addEventListener('click', function(event) {
+    // event.preventDefault(); // Prevent immediate navigation
+
+    // Play the click sound
+    clickSound.play();
+});
+
+
+
 
 
 

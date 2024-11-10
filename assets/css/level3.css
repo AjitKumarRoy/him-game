@@ -87,7 +87,7 @@ body {
 }
 
 .main-container {
-    transform: translate(0, -20%);
+    transform: translate(0, -7%);
 }
 
 .question {
@@ -99,7 +99,7 @@ body {
 }
 
 .question img {
-    width: 700px;
+    width: 600px;
 }
 
 
@@ -139,7 +139,7 @@ body {
 }
 
 .dropzone {
-    transform: translate(220%, -475%);
+    transform: translate(180%, -155%);
 }
 
 /* .dropzone img {
@@ -157,6 +157,7 @@ body {
     position: relative;
     width: 450px;
     height: 450px;
+    margin-left: 50px;
     
 }
 
@@ -191,8 +192,8 @@ body {
 }
 
 .draggable {
-    width: 130px;
-    height: 100px;
+    width: 100px;
+    height: 70px;
     /* background-color: lightblue; */
     display: flex;
     justify-content: center;
@@ -280,7 +281,7 @@ body {
     font-size: 24px;
     /* Adjust icon size */
     position: absolute;
-    transform: translate(870%, 1300%);
+    transform: translate(870%, 1150%);
     z-index: 5;
     background-color: #FEDE00;
     padding: 10px;
@@ -304,7 +305,7 @@ body {
     font-size: 24px;
     /* Adjust icon size */
     position: absolute;
-    transform: translate(820%, 1300%);
+    transform: translate(820%, 1150%);
     z-index: 5;
     background-color: #FEDE00;
     padding: 10px;
@@ -346,7 +347,7 @@ body {
   }
   
   .modal-content {
-    background-color: white;
+    background-color: green;
     padding: 20px;
     text-align: center;
     width: 300px;
@@ -359,6 +360,28 @@ body {
     font-size: 16px;
   }
   
+
+  #exitButton {
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 8px;
+  }
+
+  #exitButton:hover {
+    background-color: darkred;
+    border: 2px solid darkred;
+  }
+
+  #actionButton {
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 8px;
+  }
+
+  #actionButton:hover {
+    background-color: darkorange;
+    border: 2px solid darkorange;
+  }
 
 
 

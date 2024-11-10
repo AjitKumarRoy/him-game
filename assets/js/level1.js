@@ -211,7 +211,7 @@ function drop(event) {
         // Show modal for correct answer after 1 second
 
         setTimeout(() => {
-            modalMessage.textContent = `Yuupp! Book is the right anwer.`;
+            modalMessage.textContent = `Yuupp! This is the right anwer.`;
             actionButton.textContent = 'Move to Next Level';
             actionButton.onclick = () => { 
                 resultModal.style.display = 'none'; 

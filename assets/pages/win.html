@@ -13,8 +13,24 @@
 
 <body>
     <!-- <h1>Drag and Drop Game</h1> -->
-    <div class="game-board">
+    <div class="responsive-container">
 
+        <!-- Info Button -->
+        <button id="info-button" class="info-button">
+            <i class="fa-solid fa-info-circle"></i>
+        </button>
+
+        <!-- Modal for Animation -->
+        <div class="modal" id="info-modal">
+            <div class="modal-content">
+                <img src="../images/credits/credits.png" alt="Scrolling Image" class="scrolling-image" />
+                <button id="close-modal" class="close-modal">X</button>
+            </div>
+        </div>
+
+        <!-- Other existing content goes here -->
+
+        
 
         <div class="level">
 
@@ -25,52 +41,40 @@
                 </span>
             </button>
 
+            
 
-            <!-- home button -->
-            <div class="home">
-                <a href="../../index.html" id="home-link">
-                    <img src="../images/Level-1/Home-Button.png" alt="home" width="50px">
-                </a>
+            <div class="main-container">
+
+                <div class="character-bird ">
+                    <img src="../images/First-UI/Dragon-01.png" alt="" width="200px" class="animate__animated animate__jackInTheBox animate__slower animate__infinite">
+                </div>
+    
+
+                <div class="buttons">
+
+
+                    <div class="find-button">
+                        <img src="../images/you-win/you-win.png" alt="" width="400px">
+                    </div>
+
+
+                    <div class="exit-button">
+                        <a href="../../index.html">
+                            <img src="../images/First-UI/Exit-Button-01.png" alt="" width="200px">
+                        </a>
+                    </div>
+
+
+
+                </div>
+
+                <div class="character-2 animate__animated animate__fadeInRight animate__slower animate__infinite">
+                    <img src="../images/First-UI/Dragon-2-01.png" alt="" width="200px">
+                </div>
+
             </div>
 
 
-        </div>
-
-        <div class="main-container">
-
-            <!-- Info Button -->
-            <button id="info-button" class="info-button">
-                <i class="fa-solid fa-info-circle"></i>
-            </button>
-
-            <!-- Modal for Animation -->
-            <div class="modal" id="info-modal">
-                <div class="modal-content">
-                    <img src="../images/credits/credits.png" alt="Scrolling Image" class="scrolling-image" />
-                    <button id="close-modal" class="close-modal">X</button>
-                </div>
-            </div>
-
-            <div class="character-continer">
-                <div
-                    class="man-woman animate__animated animate__tada animate__delay-2s animate__slow animate__infinite">
-                    <img src="../images/You-Win/Male-and-Female-Character-01.png" alt="" width="100px">
-                </div>
-            </div>
-
-
-            <div class="you-win-container">
-                <div class="you-win-design1 animate__animated animate__slower animate__rubberBand animate__infinite">
-                    <img src="../images/You-Win/Design-Style-01.png" alt="" width="100px">
-                </div>
-                <div
-                    class="you-win-text man-woman animate__animated animate__heartBeat animate__slow animate__infinite">
-                    <img src="../images/You-Win/you-win.png" alt="you-win" width="800px">
-                </div>
-                <div class="you-win-design2 animate__animated animate__slower animate__rubberBand animate__infinite">
-                    <img src="../images/You-Win/Design-Style-01.png" alt="" width="100px">
-                </div>
-            </div>
 
         </div>
 
@@ -80,8 +84,8 @@
 
 
 
-    <script src="../js/credits.js"></script>
     <script src="../js/win.js"></script>
+    <script src="../js/credits.js"></script>
     <script src="https://kit.fontawesome.com/52fa5f1339.js" crossorigin="anonymous"></script>
 </body>
 

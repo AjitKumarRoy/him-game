@@ -209,7 +209,7 @@ function drop(event) {
         // Show modal for correct answer after 1 second
 
         setTimeout(() => {
-            modalMessage.textContent = `Yuupp! Football is the right anwer.`;
+            modalMessage.textContent = `Yuupp! This is the right anwer.`;
             actionButton.textContent = 'Move to Next Level';
             actionButton.onclick = () => { 
                 resultModal.style.display = 'none'; 
@@ -284,7 +284,7 @@ function transitionToNextLevel() {
         if (progress >= 100) {
             clearInterval(progressInterval); // Stop the interval
             setTimeout(() => {
-                window.location.href = './level-2.html'; // Redirect after animation
+                window.location.href = './level-3.html'; // Redirect after animation
             }, 200); // Optional short delay before redirecting
         }
     }, interval);
